@@ -89,7 +89,7 @@ if test x"${nlopt_good}" = x"no"; then
 
    ## define NLopt file and download URL
    NLOPT_TGZ="nlopt-${NLOPT_VERSION}.tar.gz"
-   NLOPT_URL="http://ab-initio.mit.edu/nlopt/${NLOPT_TGZ}"
+   NLOPT_URL="https://github.com/stevengj/nlopt/releases/download/nlopt-${NLOPT_VERSION}/${NLOPT_TGZ}"
 
    ## C Compiler options    
    NLOPTR_CFLAGS= 
@@ -123,7 +123,7 @@ if test x"${nlopt_good}" = x"no"; then
 
    ## Download NLopt source code
    ## curl -O http://ab-initio.mit.edu/nlopt/nlopt-${NLOPT_VERSION}.tar.gz
-   $("${R_HOME}/bin/Rscript" --vanilla -e "download.file(url='${NLOPT_URL}', destfile='${NLOPT_TGZ}')")
+   $("${R_HOME}/bin/Rscript" --vanilla -e "download.file(url='${NLOPT_URL}', destfile='${NLOPT_TGZ}', method='curl', extra='-L')")
 
    ## Extract NLopt source code and remove .tar.gz
    ## tar -xzvf nlopt-${NLOPT_VERSION}.tar.gz
